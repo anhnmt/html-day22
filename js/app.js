@@ -1,9 +1,19 @@
 $(function() {
-    $('.txtInput').bind('blur keyup change', function() {
+    $('.txtInput').bind('blur change', function()
+    {
         check(this);
     });
     
-    $('#submit').on('click', function() {
+    var timeout = null;
+    $('.txtInput').bind('keyup', function()
+    {
+        clearTimeout(timeout);
+        // Sau khi xóa thì thiết lập lại timeout
+        timeout = setTimeout(check(this), 1000); 
+    });
+    
+    $('#submit').on('click', function()
+    {
         $('.txtInput').blur();
 
         if (!$('.txtInput').hasClass('err'))
