@@ -88,31 +88,33 @@ body {
     padding: 15px 0;
 }
 
-.form-control input.err, .sub-control select.err {
+.form-control input.err,
+.sub-control select.err {
     border-bottom: 1px solid red;
 }
 
-.form-control input:focus, .sub-control select:focus {
+.form-control input:focus,
+.sub-control select:focus {
     outline-offset: 0;
     outline: none;
 }
 
-.form-control input.err::placeholder, .form-control input.err, .sub-control select.err {
+.form-control input.err::placeholder,
+.form-control input.err,
+.sub-control select.err {
     color: red;
 }
 
-.form-control input, .sub-control select {
+.form-control input,
+.sub-control select {
     width: 100%;
     border: none;
     border-bottom: 1px solid #eaeaea;
 }
 
-.form-control input {
-    padding: 10px 5px;
-}
-
+.form-control input,
 .sub-control select {
-    padding: 11px 5px;
+    padding: 10px 5px;
 }
 
 .form-control button {
