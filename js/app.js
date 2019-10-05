@@ -1,56 +1,30 @@
-var namee = document.getElementById('name');
-var birthday = document.getElementById('birthdate');
-var gender = document.getElementById('gender');
-var classs = document.getElementById('class');
-var email = document.getElementById('email');
-var btn = document.getElementById('submit');
+$(function() {
+    $('.txtInput').bind('blur keyup click', function() {
+        check(this.id);
+    });
+    
+    $('#submit').on('click', function() {
+        $('.txtInput').blur();
+    });
+});
 
-btn.onclick = function() {
-    check(namee);
-    check(birthday);
-    check(gender);
-    check(classs);
-    check(email);
-};
+function check(id) {
+    var element = $('#' + id);
+    const email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-namee.onblur = function() {
-    check(this);
-};
-
-birthday.onblur = function() {
-    check(this);
-};
-
-gender.onblur = function() {
-    check(this);
-};
-
-classs.onblur = function() {
-    check(this);
-};
-
-email.onblur = function() {
-    check(this);
-};
-
-function check(el) {
-    var err = document.getElementById(el.id + "_err");
-    var email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-    if (el.value.trim() === '')
+    if (element.val().trim() === '')
     {
-        el.setAttribute("class", "err");
-        err.style.display = "block";
+        element.addClass("err");
         return false;
     }
-
-    if (el.id == "email" && !email.test(el.value.trim())) {
-        el.setAttribute("class", "err");
-        err.style.display = "block";
-        err.innerHTML = email.test(el.value) ? "Vui lòng nhập email" : "Email không đúng định dạng";
-        return false;
+    else
+    {
+        if (id == "email" && !email.test(element.val().trim()))
+        {
+            element.addClass("err");
+            return false;
+        }
     }
 
-    el.setAttribute("class", "");
-    err.style.display = "none";
+    element.removeClass("err");
 }
