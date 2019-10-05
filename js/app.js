@@ -26,5 +26,6 @@ function check(id) {
         }
     }
 
+    alert('OK');
     element.removeClass("err");
 }
