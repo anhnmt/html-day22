@@ -92,7 +92,7 @@ body {
     border-bottom: 1px solid red;
 }
 
-.form-control input:focus {
+.form-control input:focus, .sub-control select:focus {
     outline-offset: 0;
     outline: none;
 }
