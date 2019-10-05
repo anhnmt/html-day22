@@ -2,11 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* font-family: 'Roboto', serif; */
 }
 
 a {
     text-decoration: none;
-    /* color: #fff; */
 }
 
 li {
@@ -88,33 +88,26 @@ body {
     padding: 15px 0;
 }
 
-.form-control input.err,
-.sub-control select.err {
+.txtInput.err {
     border-bottom: 1px solid red;
 }
 
-.form-control input:focus,
-.sub-control select:focus {
+.txtInput:focus {
     outline-offset: 0;
     outline: none;
 }
 
-.form-control input.err::placeholder,
-.form-control input.err,
-.sub-control select.err {
+.txtInput.err::placeholder,
+.txtInput.err {
     color: red;
 }
 
-.form-control input,
-.sub-control select {
+.txtInput {
     width: 100%;
     border: none;
     border-bottom: 1px solid #eaeaea;
-}
-
-.form-control input,
-.sub-control select {
     padding: 10px 5px;
+    height: 40px;
 }
 
 .form-control button {
