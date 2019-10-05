@@ -1,5 +1,5 @@
 $(function() {
-    $('.txtInput').bind('blur keyup', function() {
+    $('.txtInput').bind('blur keyup change', function() {
         check(this);
     });
     
