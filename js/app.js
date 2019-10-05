@@ -1,31 +1,38 @@
 $(function() {
     $('.txtInput').bind('blur keyup click', function() {
-        check(this.id);
+        check(this);
     });
     
     $('#submit').on('click', function() {
         $('.txtInput').blur();
+
+        if (!$('.txtInput').hasClass('err'))
+        {
+            alert('OK');
+        }
     });
 });
 
-function check(id) {
-    var element = $('#' + id);
-    const email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+function check(arg) {
+    var el = $(arg);
+    var value = el.val().trim();
+    var id = el.attr('id');
 
-    if (element.val().trim() === '')
+    if (value === '')
     {
-        element.addClass("err");
+        el.addClass('err');
         return false;
     }
     else
     {
-        if (id == "email" && !email.test(element.val().trim()))
+        const email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (id === 'email' && !email.test(value))
         {
-            element.addClass("err");
+            el.addClass('err');
             return false;
         }
     }
 
-    alert('OK');
-    element.removeClass("err");
+    el.removeClass('err');
+    return true;
 }
